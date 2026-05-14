@@ -39,8 +39,8 @@ TGraph *g1_b_up_plane = nullptr;
 TGraph *g1_a_b_uTol = nullptr;
 Double_t a_dedx_calib, b_dedx_calib;
 
-std::map<int, std::vector<int>> tof400_strips_to_exclude_{ {0, {39, 40, 41, 42}}, {6, {19}}, {8, {29,30,31}}, {9, {15,16,26,27,28}},{12, {39, 40, 41}}, {16, {7, 8, 9, 10, 11, 12, 13, 14, 16, 19, 20, 21, 22, 23, 24, 25, 37}}, {18, {4, 13, 14, 15}}, {19, {35, 37}} };
-std::map<int, std::vector<int>> tof700_strips_to_exclude_{ {2, {25,26,}}, {3, {31}}, {5, {31}}, {6, {31}}, {8, {7,11,15,31}}, {9, {31}}, {10, {28,31}}, {12, {31}}, {13, {18,19,20,21,22,23,24,25,26,27,228,29,30,31}}, {14, {31}}, {16, {31}}, {17, {31}}, {18, {11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,31}}, {19, {31}}, {20,{31}}, {21, {13,14,15,23,24,25,27,30,31}}, {22, {31}}, {24, {31}}, {25, {31}}, {26, {6, 31}}, {27, {31}}, {28, {31}}, {29, {8,31}}, {30, {15,17,31}}, {31, {31}}, {32, {31}}, {33,{22,23,24,25,31}}, {34, {24,25,31}}, {35,{31}}, {36, {31}}, {37, {31}}, {38, {31}}, {39, {31}}, {40, {1,2,3,4,5,6,7,8,9,11,17,18,19,20,26,27,31}}, {45, {11,12,13,15}}, {49, {15}}, {52, {3}}, {55, {8,9}}, {57, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}} };
+std::map<int, std::vector<int>> tof400_strips_to_exclude{ {0, {39, 40, 41, 42}}, {6, {19}}, {8, {29,30,31}}, {9, {15,16,26,27,28}},{12, {40}}, {16, {7, 8, 9, 10, 11, 12, 13, 14, 16, 19, 20, 21, 22, 23, 24, 25, 37}}, {18, {4, 13, 14, 15}}, {19, {35, 37}} };
+std::map<int, std::vector<int>> tof700_strips_to_exclude{ {2, {25,26,}}, {3, {31}}, {5, {31}}, {6, {31}}, {8, {7,11,15,31}}, {9, {31}}, {10, {28,31}}, {12, {31}}, {13, {18,19,20,21,22,23,24,25,26,27,228,29,30,31}}, {14, {31}}, {16, {31}}, {17, {31}}, {18, {11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,31}}, {19, {31}}, {20,{31}}, {21, {13,14,15,23,24,25,27,30,31}}, {22, {31}}, {24, {31}}, {25, {31}}, {26, {6, 31}}, {27, {31}}, {28, {31}}, {29, {8,31}}, {30, {15,17,31}}, {31, {31}}, {32, {31}}, {33,{22,23,24,25,31}}, {34, {24,25,31}}, {35,{31}}, {36, {31}}, {37, {31}}, {38, {31}}, {39, {31}}, {40, {1,2,3,4,5,6,7,8,9,11,17,18,19,20,26,27,31}}, {45, {11,12,13,15}}, {49, {15}}, {52, {3}}, {55, {8,9}}, {57, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}} };
 
 std::vector<int> physical_runs{6667, 6668, 6669, 6670, 6671, 6672, 6673, 6674, 6675, 6676, 6677, 6678, 6679, 6680, 6681, 6683, 6684, 6685, 666, 6687, 6689, 6690, 6691, 6692, 6694, 6695, 6696, 6698, 6699, 6732, 6733, 6734, 6737, 6738, 6739, 6740, 6745, 6752, 6753, 6760, 6761, 6765, 6766, 6767, 6768, 6769, 6771, 6772, 6773, 6774, 6779, 6780, 6782, 6783, 6785, 6786, 6788, 6794, 6795, 6797, 6799, 6800, 6803, 6815, 6816, 6817, 6818, 6819, 6820, 6821, 6822, 6879, 6882, 6883, 6884, 6886, 6887, 6889, 6891, 6900, 6901, 6902, 6903, 6904, 6905, 6906, 6907, 6908, 6909, 6910, 6911, 6915, 6916, 6918, 6919, 6920, 6921, 6923, 6924, 6926, 6927, 6928, 6929, 6930, 6931, 6932, 6933, 6934, 6935, 6936, 6937, 6939, 6940, 6968, 6970, 6972, 6973, 6975, 6976, 6977, 6978, 6979, 6980, 6981, 6982, 6983, 6984, 6990, 6991, 6992, 6993, 6994, 6995, 6997, 6998, 6999, 7000, 7002, 7003, 7004, 7005, 7006, 7008, 7009, 7010, 7011, 7012, 7030, 7031, 7032, 7033, 7034, 7035, 7037, 7038, 7040, 7041, 7042, 7043, 7044, 7046, 7047, 7048, 7049, 7050, 7051, 7052, 7053, 7054, 7055, 7056, 7075, 7076, 7077, 7078, 7081, 7082, 7083, 7084, 7086, 7087, 7091, 7092, 7093, 7094, 7096, 7097, 7098, 7100, 7101, 7102, 7103, 7104, 7125, 7126, 7127, 7128, 7129, 7130, 7131, 7132, 7133, 7135, 7136, 7137, 7138, 7146, 7149, 7150, 7151, 7154, 7155, 7156, 7157, 7159, 7160, 7161, 7162, 7163, 7164, 7165, 7166, 7167, 7168, 7173, 7174, 7175, 7176, 7177, 7178, 7179, 7180, 7181, 7182, 7184, 7186, 7187, 7188, 7191, 7192, 7193, 7194, 7195, 7200, 7202, 7203, 7205, 7206, 7207, 7208, 7209, 7211, 7212, 7213, 7214, 7215, 7216, 7217, 7218, 7219, 7220, 7223, 7225, 7255, 7258, 7261, 7263, 7265, 7267, 7268, 7269, 7271, 7272, 7274, 7276, 7278, 7279, 7281, 7284, 7286, 7288, 7290, 7291, 7312, 7313, 7320, 7321, 7322, 7323, 7325, 7326, 7327, 7328, 7337, 7342, 7343, 7344, 7345, 7346, 7348, 7349, 7351, 7352, 7353, 7354, 7355, 7356, 7357, 7358, 7359, 7361, 7363, 7364, 7365, 7367, 7369, 7374, 7376, 7377, 7378, 7379, 7380, 7381, 7382, 7386, 7387, 7388, 7389, 7390, 7391, 7392, 7393, 7395, 7396, 7397, 7398, 7399, 7400, 7401, 7402, 7403, 7405, 7406, 7408, 7409, 7410, 7411, 7412, 7413, 7414, 7415, 7417, 7418, 7419, 7421, 7422, 7423, 7425, 7427, 7428, 7429, 7431, 7432, 7433, 7434, 7435, 7437, 7439, 7440, 7441, 7442, 7444, 7445, 7446, 7447, 7449, 7451, 7452, 7453, 7454, 7455, 7456, 7457, 7458, 7460, 7461, 7469, 7471, 7472, 7473, 7474, 7477, 7478, 7480, 7481, 7482, 7483, 7484, 7487, 7488, 7489, 7490, 7491, 7492, 7493, 7495, 7497, 7498, 7500, 7501, 7502, 7513, 7514, 7515, 7517, 7519, 7520, 7521, 7528, 7529, 7530, 7531, 7532, 7533, 7534, 7537, 7538, 7539, 7542, 7543, 7545, 7546, 7547, 7549, 7550, 7551, 7552, 7553, 7554, 7564, 7565, 7566, 7567, 7569, 7570, 7572, 7573, 7574, 7575, 7577, 7579, 7581, 7584, 7585, 7586, 7587, 7590, 7591, 7592, 7596, 7597, 7599, 7600, 7604, 7605, 7606, 7607, 7608, 7609, 7611, 7612, 7613, 7622, 7623, 7625, 7626, 7627, 7628, 7630, 7631, 7633, 7634, 7635, 7636, 7638, 7639, 7640, 7641, 7643, 7644, 7645, 7646, 7647, 7649, 7655, 7656, 7657, 7659, 7660, 7662, 7663, 7664, 7665, 7666, 7668, 7669, 7670, 7671, 7673, 7674, 7675, 7676, 7677, 7678, 7679, 7681, 7682, 7684, 7685, 7687, 7688, 7689, 7690, 7692, 7693, 7694, 7696, 7698, 7700, 7701, 7702, 7703, 7704, 7705, 7710, 7712, 7713, 7714, 7715, 7716, 7717, 7718, 7721, 7723, 7724, 7725, 7726, 7727, 7728, 7729, 7730, 7732, 7733, 7734, 7735, 7736, 7737, 7751, 7752, 7753, 7755, 7756, 7761, 7762, 7763, 7764, 7766, 7767, 7768, 7769, 7771, 7772, 7775, 7776, 7778, 7779, 7780, 7781, 7783, 7784, 7785, 7786, 7788, 7789, 7790, 7791, 7794, 7795, 7796, 7797, 7798, 7801, 7802, 7803, 7814, 7816, 7819, 7821, 7824, 7825, 7828, 7829, 7830, 7831, 7832, 7834, 7835, 7836, 7842, 7843, 7845, 7846, 7847, 7848, 7850, 7851, 7852, 7853, 7855, 7856, 7857, 7858, 7859, 7865, 7868, 7869, 7870, 7871, 7873, 7874, 7876, 7877, 7878, 7880, 7882, 7883, 7884, 7885, 7886, 7887, 7890, 7891, 7892, 7893, 7894, 7896, 7897, 7898, 7899, 7900, 7901, 7903, 7904, 7905, 7906, 7907, 7908, 7910, 7911, 7912, 7913, 7914, 7931, 7932, 7933, 7935, 7937, 7938, 7939, 7941, 7942, 7944, 7948, 7949, 7950, 7952, 7954, 7955, 7957, 7958, 7960, 7961, 7962, 7963, 7965, 7966, 7967, 7975, 7977, 7978, 7979, 7981, 7982, 7986, 7988, 7989, 7990, 7991, 7992, 7995, 7996, 7997, 7998, 7999, 8000, 8001, 8002, 8004, 8005, 8006, 8007, 8008, 8009, 8013, 8014, 8015, 8016, 8018, 8020, 8021, 8022, 8023, 8026, 8027, 8028, 8029, 8030, 8031, 8032, 8033, 8038, 8039, 8040, 8041, 8042, 8044, 8045, 8046, 8047, 8048, 8050, 8051, 8052, 8053, 8055, 8056, 8057, 8058, 8059, 8061, 8063, 8064, 8065, 8066, 8068, 8069, 8070, 8071, 8072, 8074, 8075, 8076, 8077, 8079, 8080, 8081, 8082, 8084, 8086, 8087, 8088, 8089, 8090, 8097, 8100, 8101, 8102, 8104, 8106, 8108, 8109, 8110, 8111, 8112, 8113, 8115, 8116, 8117, 8118, 8119, 8121, 8122, 8123, 8124, 8129, 8130, 8131, 8133, 8137, 8138, 8139, 8140, 8141, 8142, 8144, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8165, 8166, 8167, 8168, 8169, 8170, 8173, 8174, 8175, 8176, 8177, 8180, 8183, 8184, 8186, 8188, 8190, 8191, 8192, 8193, 8195, 8196, 8198, 8199, 8201, 8202, 8203, 8204, 8205, 8206, 8207, 8208, 8209, 8210, 8211, 8212, 8213, 8215, 8217, 8219, 8220, 8221, 8228, 8229, 8230, 8231, 8235, 8236, 8238, 8239, 8240, 8242, 8244, 8245, 8246, 8247, 8248, 8250, 8251, 8253, 8254, 8255, 8256, 8257, 8258, 8265, 8266, 8267, 8268, 8270, 8271, 8273, 8274, 8275, 8276, 8277, 8278, 8279, 8281, 8284, 8286, 8287, 8288, 8289, 8290, 8292, 8293, 8294, 8295, 8297, 8298, 8299, 8300, 8305, 8306};
 std::vector<int> bad_runs{7313, 7415, 7417, 7435, 7469, 7517, 7519, 7520, 7537, 7575, 7604, 7630, 7657, 7659, 7679, 7681, 7705, 7735, 7843, 7847, 7848, 7850, 7851, 7852, 7853, 7855, 7856, 7857, 7858, 7859, 7865, 7868, 7907, 7931, 7932, 7933, 7935, 7937, 7938, 7939, 7954, 7955, 8031, 8032, 8033, 8115, 8121, 8167, 8201, 8204, 8205, 8208, 8209, 8210, 8211, 8212, 8213, 8215, 8247, 8265, 8266, 8267, 8281, 8289};
@@ -603,6 +603,7 @@ try {
 auto TofHitPlane(const RVec<BmnTofHit>& tofHits)
 try
 {
+  // print.qf()
   vector<int> hit_mod_num;
   hit_mod_num.reserve(tofHits.size());
   for( const auto& hit : tofHits )
@@ -635,6 +636,45 @@ catch(const std::exception &e)
     std::cout << __func__ << std::endl;
     throw e;
 }
+
+
+//=========== debug functions ==================
+auto trTofHitPlane(const RVec<int> fHitIndex, const vector<int>& tofHits)
+try
+{
+  vector<int> hit_mod_num(fHitIndex.size(), -1);
+  for(int i = 0; i < fHitIndex.size(); ++i)
+  {
+    if (fHitIndex.at(i) < 0) continue;
+    hit_mod_num.at(i) = tofHits.at(fHitIndex.at(i));
+  }
+  return hit_mod_num;
+}
+catch(const std::exception &e)
+{
+    std::cout << __func__ << std::endl;
+    std::cout << e.what() << std::endl;
+    throw e;
+}
+
+auto trTofHitStrip(const RVec<int> fHitIndex, const vector<int>& tofHits)
+try
+{
+  vector<int> hit_strip_num(fHitIndex.size(), -1);
+  for(int i = 0; i < fHitIndex.size(); ++i)
+  {
+    if (fHitIndex.at(i) < 0) continue;
+    hit_strip_num.at(i) = tofHits.at(fHitIndex.at(i));
+  }
+  return hit_strip_num;
+}
+catch(const std::exception &e)
+{
+    std::cout << __func__ << std::endl;
+    std::cout << e.what() << std::endl;
+    throw e;
+}
+//=================================================
 
 
 vector<XYZVector> recPos450(const RVec<BmnGlobalTrack> tracks)
@@ -929,6 +969,45 @@ try {
   throw e;
 }
 
+RVec<double> remove_beta400_from_bad_strips(const RVec<double> fBeta, const RVec<int> fHitIndex, const vector<int> fPlane, const vector<int> fStrip)
+try{
+  RVec<double> fBetaClean_(fBeta);
+  for( int i = 0; i <  fHitIndex.size(); i++){
+    auto hit_idx = fHitIndex.at(i);
+			if (hit_idx < 0 ) continue;
+			auto plane = fPlane.at(hit_idx);
+			auto strip = fStrip.at(hit_idx);
+			if (auto iter_pl = tof400_strips_to_exclude.find(plane); iter_pl != tof400_strips_to_exclude.end() ){
+				if ( std::find(tof400_strips_to_exclude.at(plane).begin(), tof400_strips_to_exclude.at(plane).end(), strip) != tof400_strips_to_exclude.at(plane).end())
+        fBetaClean_.at(i) = -999.;
+			}
+  }
+    return fBetaClean_;
+} catch( const std::exception& e ){
+  std::cout << e.what() << std::endl;
+  std::cout << __func__ << std::endl;
+  throw e;
+}
+
+RVec<double> remove_beta700_from_bad_strips(const RVec<double> fBeta, const RVec<int> fHitIndex, const vector<int> fPlane, const vector<int> fStrip)
+try{
+  RVec<double> fBetaClean_(fBeta);
+  for( int i = 0; i <  fHitIndex.size(); i++){
+    auto hit_idx = fHitIndex.at(i);
+			if (hit_idx < 0 ) continue;
+			auto plane = fPlane.at(hit_idx);
+			auto strip = fStrip.at(hit_idx);
+			if (auto iter_pl = tof700_strips_to_exclude.find(plane); iter_pl != tof700_strips_to_exclude.end() ){
+				if ( std::find(tof700_strips_to_exclude.at(plane).begin(), tof700_strips_to_exclude.at(plane).end(), strip) != tof700_strips_to_exclude.at(plane).end())
+          fBetaClean_.at(i) = -999.;
+			}
+  }
+    return fBetaClean_;
+} catch( const std::exception& e ){
+  std::cout << __func__ << std::endl;
+  std::cout << e.what() << std::endl;
+  throw e;
+}
 
 // m2
 RVec<float> trM2(const vector<fourVector> mTr, const RVec<double> fBeta)
@@ -1354,7 +1433,6 @@ void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root",
   auto hodoModPos=modulePos(geoFileName.Data(),"hodo");
   auto fhcalModPos=modulePos(geoFileName.Data(),"fhcal");
 
-
 	TF1* f1_211_m_400 = nullptr;
   TF1* f1_211_s_400 = nullptr;
   TF1* f1_211_m_700_proto = nullptr;
@@ -1376,46 +1454,52 @@ void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root",
   TF1* f1_1000010020_m_700 = new TF1("f1_1000010020_m_700", Poly3Poly3, 0., 10., 9);
 
   auto file_pid400 = TFile::Open( str_pid400_functions_file.c_str(), "READ" );
-	file_pid400->GetObject("fit_211_x0", f1_211_m_400);
-	file_pid400->GetObject("fit_211_sigma", f1_211_s_400);
-	file_pid400->GetObject("fit_2212_x0", f1_2212_m_400);
-	file_pid400->GetObject("fit_2212_sigma", f1_2212_s_400);
-  file_pid400->GetObject("fit_1000010020_sigma", f1_1000010020_s_400);
-  file_pid400->GetObject("fit_1000010020_x0", f1_1000010020_m_400_proto);
-  double* pars400_de_x0 = new double[f1_1000010020_m_400_proto->GetNpar()];
-  f1_1000010020_m_400_proto->GetParameters(pars400_de_x0);
-  f1_1000010020_m_400->SetParameters(pars400_de_x0);
+  if (file_pid400){
+    printf("reading PID function from file (TOF400)\n");
+    file_pid400->cd();
+    file_pid400->GetObject("fit_211_x0", f1_211_m_400);
+	  file_pid400->GetObject("fit_211_sigma", f1_211_s_400);
+	  file_pid400->GetObject("fit_2212_x0", f1_2212_m_400);
+	  file_pid400->GetObject("fit_2212_sigma", f1_2212_s_400);
+    file_pid400->GetObject("fit_1000010020_sigma", f1_1000010020_s_400);
+    file_pid400->GetObject("fit_1000010020_x0", f1_1000010020_m_400_proto);
+    double* pars400_de_x0 = new double[f1_1000010020_m_400_proto->GetNpar()];
+    f1_1000010020_m_400_proto->GetParameters(pars400_de_x0);
+    f1_1000010020_m_400->SetParameters(pars400_de_x0);
+    delete [] pars400_de_x0;
+    file_pid400->Close();
+  }
 
  	auto file_pid700 = TFile::Open( str_pid700_functions_file.c_str(), "READ" );
+  if(file_pid700){
+    printf("reading PID function from file (TOF700)\n");
+    file_pid400->cd();
+    file_pid700->GetObject("fit_211_x0", f1_211_m_700_proto);
+    file_pid700->GetObject("fit_211_sigma", f1_211_s_700_proto);
+ 	  double* pars700_211_x0 = new double[f1_211_m_700_proto->GetNpar()];
+     double* pars700_211_s = new double[f1_211_s_700_proto->GetNpar()];
+ 	  f1_211_m_700_proto->GetParameters(pars700_211_x0);
+    f1_211_s_700_proto->GetParameters(pars700_211_s);
+ 	  f1_211_m_700->SetParameters(pars700_211_x0);	
+	  f1_211_s_700->SetParameters(pars700_211_s);
 
-  file_pid700->GetObject("fit_211_x0", f1_211_m_700_proto);
- 	double* pars700_211_x0 = new double[f1_211_m_700_proto->GetNpar()];
- 	f1_211_m_700_proto->GetParameters(pars700_211_x0);
- 	f1_211_m_700->SetParameters(pars700_211_x0);
+	  file_pid700->GetObject("fit_2212_x0", f1_2212_m_700);
+	  file_pid700->GetObject("fit_2212_sigma", f1_2212_s_700);
+
+    file_pid700->GetObject("fit_1000010020_sigma", f1_1000010020_s_700);
+    file_pid700->GetObject("fit_1000010020_x0", f1_1000010020_m_700_proto);
+    double* pars700_de_x0 = new double[f1_1000010020_m_700_proto->GetNpar()];
+    f1_1000010020_m_700_proto->GetParameters(pars700_de_x0);
+    f1_1000010020_m_700->SetParameters(pars700_de_x0);
+
+    delete [] pars700_211_x0;
+    delete [] pars700_211_s;
+    delete [] pars700_de_x0;
+    delete f1_1000010020_m_400_proto;
+    delete f1_1000010020_m_700_proto;
+    file_pid700->Close();
+  }
 	
-	file_pid700->GetObject("fit_211_sigma", f1_211_s_700_proto);
-	double* pars700_211_s = new double[f1_211_s_700_proto->GetNpar()];
-	f1_211_s_700_proto->GetParameters(pars700_211_s);
-	f1_211_s_700->SetParameters(pars700_211_s);
-
-	file_pid700->GetObject("fit_2212_x0", f1_2212_m_700);
-	file_pid700->GetObject("fit_2212_sigma", f1_2212_s_700);
-  file_pid700->GetObject("fit_1000010020_sigma", f1_1000010020_s_700);
-
-  file_pid700->GetObject("fit_1000010020_x0", f1_1000010020_m_700_proto);
-  double* pars700_de_x0 = new double[f1_1000010020_m_700_proto->GetNpar()];
-  f1_1000010020_m_700_proto->GetParameters(pars700_de_x0);
-  f1_1000010020_m_700->SetParameters(pars700_de_x0);
-
-  delete [] pars400_de_x0;
-  delete [] pars700_211_x0;
-  delete [] pars700_211_s;
-  delete [] pars700_de_x0;
-  delete f1_1000010020_m_400_proto;
-  delete f1_1000010020_m_700_proto;
-	
-  file_pid400->Close();
-  file_pid700->Close();
 
 /*
   //pion TOF-400
@@ -1580,6 +1664,7 @@ void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root",
     .Define("trChi2vtx","BmnGlobalTrack.fChi2InVertex")
     .Define("trLength","BmnGlobalTrack.fLength")
     .Define("trCharge",recCharge,{"BmnGlobalTrack"})
+    .Define("pq", "std::vector<float> pq; for( int i=0; i<trMom.size(); i++ ){ pq.push_back( trMom.at(i).P()/trCharge.at(i) ); } return pq;")
     .Define("trDca",recDca,{"BmnGlobalTrack","PrimaryVertex."})
     .Define("trDcaMpd",recDca,{"BmnGlobalTrack","MpdVertex."})
     .Define("trTof400hit","BmnGlobalTrack.fTof1Hit")
@@ -1614,7 +1699,6 @@ void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root",
     .Define("beamTrackB",   "BmnBeamTrack.fB")
     .Define("beamTrackParameters", BeamTrackParameters, { "BmnBeamTrack" })
 
-    .Define("tof400Digits","TOF400.fUniqueID")
     .Define("tof400Plane", TofHitPlane, {"BmnTof400Hit"})
     .Define("tof400Strip", TofHitStrip, {"BmnTof400Hit"})
     .Define("tof400hitPos",tofHitPosition,{"BmnTof400Hit"})
@@ -1622,10 +1706,8 @@ void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root",
     .Define("tof400hitL","BmnTof400Hit.fLength")
     .Define("tof400hitResX","BmnTof400Hit.fResX")
     .Define("tof400hitResY","BmnTof400Hit.fResY")
-    .Define("tof400hitRefIndex","BmnTof400Hit.fRefIndex")
     .Define("tof400hitResCalc",tofRes,{"BmnGlobalTrack","BmnTof400Hit"})
 
-    .Define("tof700Digits","TOF700.fUniqueID")
     .Define("tof700Plane", TofHitPlane, {"BmnTof700Hit"})
     .Define("tof700Strip", TofHitStrip, {"BmnTof700Hit"})
     .Define("tof700hitPos",tofHitPosition,{"BmnTof700Hit"})
@@ -1633,13 +1715,16 @@ void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root",
     .Define("tof700hitL","BmnTof700Hit.fLength")
     .Define("tof700hitResX","BmnTof700Hit.fResX")
     .Define("tof700hitResY","BmnTof700Hit.fResY")
-    .Define("tof700hitRefIndex","BmnTof700Hit.fRefIndex")
     .Define("tof700hitResCalc",tofRes,{"BmnGlobalTrack","BmnTof700Hit"})
 
-    .Define("trBetaTof400_clean", remove_beta400_from_bad_strips, {"trBetaTof400", "trTof400Hit", "tof400Plane", "tof400Strip"})
-    .Define("trBetaTof700_clean", remove_beta700_from_bad_strips, {"trBetaTof700", "trTof400Hit", "tof700Plane", "tof700Strip"})
+    .Define("trBetaTof400_clean", remove_beta400_from_bad_strips, {"trBetaTof400", "trTof400hit", "tof400Plane", "tof400Strip"})
+    .Define("trBetaTof700_clean", remove_beta700_from_bad_strips, {"trBetaTof700", "trTof700hit", "tof700Plane", "tof700Strip"})
     .Define("trM2Tof400", trM2, {"trMom", "trBetaTof400_clean"})
     .Define("trM2Tof700", trM2, {"trMom", "trBetaTof700_clean"})
+    .Define("trTof400Plane", trTofHitPlane, {"trTof400hit", "tof400Plane"})
+    .Define("trTof400Strip", trTofHitStrip, {"trTof400hit", "tof400Strip"})
+    .Define("trTof700Plane", trTofHitPlane, {"trTof700hit", "tof700Plane"})
+    .Define("trTof700Strip", trTofHitStrip, {"trTof700hit", "tof700Strip"})
 
     .Define("scwallModPos",[scwallModPos](){return scwallModPos;})
     .Define("scwallModId",moduleId, {"scwallModPos"})
