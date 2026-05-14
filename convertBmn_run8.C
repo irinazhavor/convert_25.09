@@ -1301,9 +1301,9 @@ try {
 }
 
 void convertBmn_run8(string inReco="reco.root", string inDigi="digi.root", 
-                     string inRunidDedxCalib = "run8_dedx_calibR_coeff.root", string inStsStationDedxCalib = "run8_dedx_calibS_coeff.root", 
-                     string str_pid400_functions_file = "pars400_25.04.root", string str_pid700_functions_file = "pars700_25.04.root",
-                     std::string fileOut = "out.tree.root")
+                     string inRunidDedxCalib = "run8_dedx_calibR_coeff.root", string inStsStationDedxCalib = "run8_dedx_calibS_coeff.root",
+                     std::string fileOut = "out.tree.root",
+                     string str_pid400_functions_file = "dummy_pars400_25.04.root", string str_pid700_functions_file = "dummy_pars700_25.04.root",)
 {
   
   TChain *chainRec=makeChain(inReco, "bmndata");
